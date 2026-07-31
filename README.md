@@ -82,6 +82,9 @@ and cached inputs. Carbon emissions were not estimated.
 - `MODEL_CARD.md`: annual SAV model description, inputs, evaluation, and
   limitations.
 
+- The WRTDS-derived daily tributary TSS, TP, and TN series data used by the
+  Python workflow, have already been incorporated into `Combine.xlsx`; 
+  the Python scripts do not rerun the WRTDS analysis.
 ## 5. Training data
 
 `Data/Training/` contains the filled observation tables used to train the
