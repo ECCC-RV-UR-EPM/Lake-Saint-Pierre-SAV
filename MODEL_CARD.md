@@ -88,18 +88,12 @@ NumPy 2.2.6, and SciPy 1.15.2.
 
 ## Limitations
 
-The model was developed specifically for Lake Saint-Pierre and has not been
-validated for other aquatic systems. SAV observations were not available in
-every year, and their spatial coverage was uneven. Part of the southern sector
-was not surveyed because access to the former firing-range area was
-restricted.
-
-Water temperature, TSS, TP, and TN are predicted by upstream models, so their
-uncertainty can affect the SAV results. The north-shore definition and fixed
-spatial constraints also contribute spatial structure to the final maps. The
-analysis uses a fixed 200 m grid and does not account for annual changes in the
-lake boundary.
-
-The environmental scenarios are sensitivity analyses. They change one annual
-predictor while holding the other predictors constant. They should not be
-interpreted as fully propagated forecasts or as direct evidence of causation.
+The model was developed using observations from Lake Saint-Pierre and is 
+intended for applications within environmental conditions comparable to those
+represented in the training dataset. As a data-driven approach, it identifies 
+patterns and relationships between environmental variables and submerged aquatic 
+vegetation occurrence rather than explicitly simulating the underlying physical 
+and ecological processes. Consequently, future applications beyond the range of 
+conditions represented in the training data may benefit from additional 
+calibration or validation. Model performance is also influenced by the quality
+and representativeness of the input datasets.
