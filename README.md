@@ -7,7 +7,7 @@ modeling study.
 ## 1. Download and copy the input file, trained model file, and results folder to the following path. These files are shared separately due to GitHub file size limitations.
 #1.1 input file: "LSP_LSWT_200m_rev02_2000-2024_satellite.csv" => "..\Data\Training\"
 
-https://drive.google.com/file/d/1kaIVeiORp3j2IZLWYPIN-8H3L3itu4CA/view?usp=sharing
+https://drive.google.com/file/d/1wBt4HDGfiiG1cehLzSh709o1Jb099oAS/view?usp=sharing
 
 #1.2 trained model "cascade_v3_model_bundle.pkl"=> "..\Data\Test" 
 
