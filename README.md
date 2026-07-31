@@ -5,9 +5,9 @@ data used for the Lake Saint-Pierre submerged aquatic vegetation (SAV)
 modeling study.
 
 ## 1. Download and copy the input file, trained model file, and results folder to the following path. These files are shared separately due to GitHub file size limitations.
-#1.1 input file: "LSP_LSWT_200m_rev02_2000-2024_satellite_reduced.csv" => "..\Data\Training\"
+#1.1 input file: "LSP_LSWT_200m_rev02_2000-2024_satellite.csv" => "..\Data\Training\"
 
-https://drive.google.com/file/d/1kaIVeiORp3j2IZLWYPIN-8H3L3itu4CA/view?usp=drive_link
+https://drive.google.com/file/d/1kaIVeiORp3j2IZLWYPIN-8H3L3itu4CA/view?usp=sharing
 
 #1.2 trained model "cascade_v3_model_bundle.pkl"=> "..\Data\Test" 
 
