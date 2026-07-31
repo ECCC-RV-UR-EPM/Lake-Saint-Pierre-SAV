@@ -15,8 +15,8 @@ environmental sensitivity analyses included in the study.
 ## Training data
 
 The model was trained using
-`Data/04_sav_annual/core_data/cascade_training_table.parquet`. A CSV version of
-the same table is also included in the package.
+`Data/Training/SAV_Code_Training/Training_data/cascade_training_table.parquet`.
+A CSV version of the same table is also included in the package.
 
 The training table contains 27,416 SAV observations collected in 2007, 2012,
 2013, 2014, 2015, 2016, 2017, 2019, and 2021. Among these observations, 20,372
@@ -51,14 +51,16 @@ scikit-learn defaults in the tested software environment.
 
 Performance was evaluated with leave-one-year-out cross-validation. In each
 validation round, all observations from one year were excluded from training
-and used for testing. The final classification threshold was selected with the
-Youden criterion using the combined predictions from all held-out years.
+and used for testing. A fold-specific Youden threshold was used to calculate
+the classification metrics for each held-out year. After all held-out
+predictions were combined, a pooled Youden threshold was calculated and
+retained in the final model bundle for annual prediction.
 
 Across the nine held-out years, mean accuracy was 0.926, mean balanced
 accuracy was 0.885, mean precision was 0.934, mean recall was 0.970, and mean
 F1 score was 0.951. Mean ROC AUC was 0.927 and mean PR AUC was 0.963.
 Year-specific results are available in
-`Data/04_sav_annual/results/cascade_v3_loyo_per_year.csv`.
+`Data/Training/SAV_Code_Training/results/cascade_v3_loyo_per_year.csv`.
 
 ## Model file
 
@@ -68,15 +70,15 @@ the classification threshold, and the ordered list of predictor names.
 The file is produced by running:
 
 ```text
-python Code/Run_annual_SAV_baseline.py
+python Code/Training/Run_annual_SAV_baseline.py
 ```
 
 The training and prediction functions used by this script are defined in
-`Code/sav_annual_common.py`. Running the baseline script also produces the
+`Code/Training/sav_annual_common.py`. Running the baseline script also produces the
 validation results, feature importance, annual SAV maps, and area summaries.
 
 The saved model can be loaded through the function `load_model_bundle()` in
-`Code/sav_annual_common.py`.
+`Code/Training/sav_annual_common.py`.
 
 ## Software
 
@@ -101,9 +103,3 @@ lake boundary.
 The environmental scenarios are sensitivity analyses. They change one annual
 predictor while holding the other predictors constant. They should not be
 interpreted as fully propagated forecasts or as direct evidence of causation.
-
-## Citation and use
-
-This model is provided to support reproduction of the associated Lake
-Saint-Pierre SAV study. Users should cite the associated publication and
-follow the license and data-use information provided in the public repository.
