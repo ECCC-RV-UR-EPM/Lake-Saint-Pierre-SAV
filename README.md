@@ -4,17 +4,17 @@ This package contains the training code, model-evaluation code, and selected
 data used for the Lake Saint-Pierre submerged aquatic vegetation (SAV)
 modeling study.
 
-## Download and copy to the following path: below input file, trained model file and results folder are shared separately due to GitHub file-sharing limitations.
-1- input file: "LSP_LSWT_200m_rev02_2000-2024_satellite_reduced.csv" => "..\Data\Training\"
+##1. Download and copy to the following path: below input file, trained model file and results folder are shared separately due to GitHub file-sharing limitations.
+1.1> input file: "LSP_LSWT_200m_rev02_2000-2024_satellite_reduced.csv" => "..\Data\Training\"
 https://drive.google.com/file/d/1kaIVeiORp3j2IZLWYPIN-8H3L3itu4CA/view?usp=drive_link
 
-2- trained model "cascade_v3_model_bundle.pkl"=> "..\Data\Test"
+1.2> trained model "cascade_v3_model_bundle.pkl"=> "..\Data\Test"
 https://drive.google.com/file/d/1eOU-7cGiG2d5SYO5SIVAoA6yx_wcQbQy/view?usp=sharing
 
-3- "..\Data\Training\SAV_Code_Training\results"
+1.3> "..\Data\Training\SAV_Code_Training\results"
 https://drive.google.com/drive/folders/1LOUgJJaplTO2Z2k6XJsWTt7c_PmH8ly8?usp=sharing
 
-## Software
+##2. Software
 
 The workflow was developed and tested with Python 3.10.19 on a 64-bit
 Windows 11 computer. The tested dependency versions are listed in
@@ -40,7 +40,7 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-## Computing requirements and approximate runtime
+##3. Computing requirements and approximate runtime
 
 The analyses were run on a 64-bit Windows 11 computer with a 12th Gen Intel
 Core i7-1255U processor (10 cores and 12 logical processors) and 16 GB of RAM.
@@ -60,7 +60,7 @@ default CPU settings. Runtime estimates were derived from consecutive
 output-file timestamps and may vary with processor performance, disk speed,
 and cached inputs. Carbon emissions were not estimated.
 
-## Package layout
+##4. Package layout
 
 - `Code/Training/`: preprocessing, model-training, prediction, annual SAV,
   and scenario-analysis scripts.
@@ -79,7 +79,7 @@ and cached inputs. Carbon emissions were not estimated.
 - `MODEL_CARD.md`: annual SAV model description, inputs, evaluation, and
   limitations.
 
-## Training data
+##5. Training data
 
 `Data/Training/` contains the filled observation tables used to train the
 water-temperature, TSS, TP, and TN models, together with their corresponding
@@ -106,7 +106,7 @@ CSV file is included as a human-readable export.
 The annual SAV training years are 2007, 2012, 2013, 2014, 2015, 2016, 2017,
 2019, and 2021. Annual hindcasts cover 2002-2024.
 
-## Training code
+##6. Training code
 
 The principal model-training scripts are:
 
@@ -127,12 +127,12 @@ reduced `Sent_to_Reza` package contains the training and annual-test materials
 listed above; it does not include every large yearly intermediate prediction
 cache used in the full staged rebuild.
 
-## Workflow and execution order
+##7. Workflow and execution order
 
 Run the commands below from the package root, where `README.md`,
 `requirements.txt`, `Code/`, and `Data/` are located.
 
-### Route A: reproduce the annual SAV results from packaged annual inputs
+###7.1 Route A: reproduce the annual SAV results from packaged annual inputs
 
 This is the recommended route for reproducing the annual SAV model, baseline
 maps, and sensitivity scenarios. It uses the packaged training table and
@@ -167,7 +167,7 @@ The baseline script must be run before the scenario scripts because the
 scenario analyses use the fitted annual SAV model bundle produced by the
 baseline run.
 
-### Route B: rebuild the staged environmental and annual SAV workflow
+###7.2 Route B: rebuild the staged environmental and annual SAV workflow
 
 Use this route only when the complete upstream daily inputs and yearly
 prediction files are available. Before running these scripts, update any
@@ -207,7 +207,7 @@ when the corresponding yearly prediction-input caches are already available.
 The reduced package does not contain every large intermediate cache required
 for a complete Route B run.
 
-## Annual SAV model
+##8. Annual SAV model
 
 The annual SAV random-forest classifier uses the following eight predictors:
 
@@ -226,7 +226,7 @@ The model contains 320 trees, uses balanced subsampling, and uses random seed
 42. Missing predictor values are imputed using medians calculated from the
 training data. Additional details are provided in `MODEL_CARD.md`.
 
-## Annual SAV model test
+##9. Annual SAV model test
 
 The model test is not a prerequisite for Route A. The packaged file
 `Data/Test/cascade_v3_model_bundle.pkl` is a copy of the model bundle produced
@@ -268,7 +268,7 @@ The output files are:
 - `sav_loyo_metrics_by_year.csv`
 - `sav_loyo_fold_summary.csv`
 
-## Reproducibility notes
+##10. Reproducibility notes
 
 Random seeds are fixed in the model-training and evaluation workflows.
 Package versions in `requirements.txt` should be used because changes in
