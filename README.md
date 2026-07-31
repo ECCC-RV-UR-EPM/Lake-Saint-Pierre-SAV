@@ -126,7 +126,7 @@ generate water-temperature, TSS, TP, and TN fields from 2002 to 2024.
 Some upstream scripts contain a `base_dir`, `BASE_DIR`, or other input path
 near the beginning of the file. Before running those scripts on another
 computer, set these paths to the corresponding local data location. The
-reduced `Sent_to_Reza` package contains the training and annual-test materials
+package contains the training and annual-test materials
 listed above; it does not include every large yearly intermediate prediction
 cache used in the full staged rebuild.
 
